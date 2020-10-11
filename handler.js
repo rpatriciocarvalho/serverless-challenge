@@ -4,8 +4,8 @@ const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-depe
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports.extractMetadata = (event, context, callback) => {
+module.exports.extractMetadata = async (event, context) => {
 };
 
-module.exports.getMetadata = (event, context, callback) => {
+module.exports.getMetadata = async (event, context) => {
 };
