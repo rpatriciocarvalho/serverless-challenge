@@ -54,3 +54,7 @@ No arquivo `serverless.yml` foi acrescentado a função correspondente.
 
 > **Issue**
 > O link temporário para download está retornando acesso negado. Acredito que seja alguma permissão no meu usuário IAM para que possa dar acesso a essa função.
+
+## decimalencoder.py
+
+Há um bug que não permite números decimais na serialização JSON. Encontrei essa alternativa no seguinte repositório: [https://github.com/serverless/examples/tree/master/aws-python-rest-api-with-dynamodb](https://github.com/serverless/examples/tree/master/aws-python-rest-api-with-dynamodb)
