@@ -16,6 +16,9 @@ Esse projeto utiliza as seguintes tecnologias:
 
 O projeto possui 4 funções.
 
+Dentro do bucket `meusarquivosdodesafio` na Amazon S3 é necessário criar a pasta `uploads`. É dentro dessa pasta que as imagens devem ser carregadas.
+
+
 ### extractMetadata
 Responsável por extrair o nome, tamanho e tipo da imagem carregada e registrar no banco de dados. Não é acessada por método GET.
 
