@@ -4,7 +4,9 @@ frameworkVersion: ">=1.1.0"
 
 provider:
   name: aws
-  runtime: nodejs12.x # python3.6
+  runtime: python3.8
+  apiGateway: 
+    shouldStartNameWithService: true
   profile: hackathon
   region: us-east-1
   environment:
@@ -28,11 +30,30 @@ functions:
     timeout: 30
     events:
       - s3:
-          bucket: bucketname # Escolha o nome do seu bucket que deve ser único
+          bucket: meusarquivosdodesafio
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/
             - suffix: .jpg
+      - s3:
+          bucket: meusarquivosdodesafio
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .jpeg
+      - s3:
+          bucket: meusarquivosdodesafio
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .png
+      - s3:
+          bucket: meusarquivosdodesafio
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .gif
+ 
   getMetadata:
     handler: handler.getMetadata
     description:
@@ -44,6 +65,31 @@ functions:
           method: get
           cors: true
 
+  infoImages:
+    handler: handler.infoImages
+    description:
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          path: infoimages/
+          method: get
+  
+  getImage:
+    handler: handler.getImage
+    description:
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          path: get/{s3objectkey}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                s3objectkey: true
+ 
 resources:
   Resources:
     ImagesDynamoDbTable:
