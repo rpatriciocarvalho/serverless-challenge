@@ -29,7 +29,7 @@ O formato do a imagem é extraída da chave do objeto, onde todas as letras são
 A chave do objeto, seu tamanho e tipo são salvos na tabela `serverless-challenge-dev`.
 
 > **Issue**
-> Falta implementar a análise da largura e altura da imagem.
+> Falta implementar a análise da largura e altura da imagem. Dificuldade para instalar o Pillow.
 
 ### getMetadata
 Recebe como parâmetro o nome da imagem `{s3objectkey}` e retorna os metadados registrados no banco de dados.
